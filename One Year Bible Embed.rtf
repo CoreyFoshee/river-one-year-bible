@@ -1,0 +1,104 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # One Year Bible \'97 Daily Reader\
+\
+A small web app that shows **today\'92s Bible readings** from your **CSV schedule**, loads verse text from **API.Bible** (e.g. NIV), and is meant to be **embedded on a Subsplash site** (e.g. [theriver.cc](https://theriver.cc)) via **iframe**, or opened in a new tab.\
+\
+---\
+\
+## What this project does\
+\
+1. **Reads a fixed schedule** \'97 one row per day with references (from your CSV; can be imported at build time or loaded as static JSON).\
+2. **Calls API.Bible** \'97 fetches passage text for the selected Bible version (e.g. NIV), following their usage rules (attribution, verse limits, terms of use).\
+3. **Serves a single URL** \'97 responsive page suitable for:\
+   - **iframe embed** on Subsplash (Custom HTML), or  \
+   - **direct link** from the church website menu if iframes are restricted.\
+\
+---\
+\
+## What you need before you start\
+\
+| Item | Notes |\
+|------|--------|\
+| **API.Bible account & API key** | Sign up at [API.Bible](https://scripture.api.bible/) / [api.bible](https://api.bible/). |\
+| **Bible version ID for NIV** | In API.Bible\'92s docs/dashboard, confirm **NIV** is available to your application. Some translations require extra licensing\'97verify before building. |\
+| **CSV of readings** | One row per calendar day with enough info to build API.Bible **passage references** (e.g. `JHN.3.16` format depends on API\'97check their reference format for your bibleId). |\
+| **Hosting** | Any HTTPS host: **Vercel**, **Netlify**, **Cloudflare Pages**, Azure, church server, etc. Subsplash does **not** host your API key securely; this app must be hosted elsewhere. |\
+| **Domain (optional)** | e.g. `readings.theriver.cc` \'97 CNAME to your host; helps branding and cookie policies if you add them later. |\
+\
+---\
+\
+## Architecture (recommended)\
+\
+\
+- **Do not** expose the API.Bible API key in client-only JavaScript that anyone can read.\
+- Use **server-side** or **serverless** routes (e.g. Next.js API routes, Netlify Functions, Cloudflare Workers) to proxy requests to API.Bible.\
+\
+---\
+\
+## Subsplash / theriver.cc integration\
+\
+1. Deploy this app so it has a public URL, e.g. `https://readings.theriver.cc`.\
+2. In **Subsplash** site settings, create a **new page** (e.g. \'93One Year Bible\'94).\
+3. Add **Custom HTML** (or equivalent) and paste an **iframe**:\
+\
+   ```html\
+   <iframe\
+     src="https://readings.theriver.cc"\
+     title="One Year Bible"\
+     style="width:100%;min-height:800px;border:0;"\
+     loading="lazy"\
+   ></iframe>\
+\
+\
+\
+\
+# API.Bible\
+API_BIBLE_KEY=your_key_here\
+\
+# Bible version from API.Bible (example placeholder\'97use the real ID from the API)\
+API_BIBLE_ID=...\
+\
+# Optional: timezone for \'93today\'94 (e.g. America/Indiana/Indianapolis)\
+TZ=America/Indiana/Indianapolis\
+\
+\
+CSV \uc0\u8594  schedule format\
+Decide one row per day (e.g. date + columns for OT, NT, Psalms, Proverbs, or whatever your CSV has).\
+Convert CSV to JSON or TypeScript data at build time, or parse server-side.\
+Map each passage to API.Bible\'92s expected reference format for your bibleId (see API.Bible docs for passages endpoint).\
+Legal & API compliance\
+Follow API.Bible terms of use (non-commercial vs commercial, attribution, caching rules, verse limits).\
+Display copyright / attribution as required for NIV and any API response metadata they mandate.\
+NIV rights are controlled by Biblica/Zondervan; availability through API.Bible is not guaranteed\'97confirm in the developer portal.\
+Local development\
+Clone the repo and install dependencies (commands depend on stack\'97add your package manager steps here after you scaffold).\
+Copy .env.example to .env and fill in values.\
+Run the dev server.\
+Open the page and confirm \'93today\'94 shows the correct rows from your CSV for the test date.\
+Deployment checklist\
+\
+API key only on server / serverless secrets\
+\
+HTTPS enabled\
+\
+CSV/schedule deployed with the app (or loaded from secure storage)\
+\
+Attribution visible on the page\
+\
+Test iframe on Subsplash staging/production\
+\
+Test iPhone/Android\
+Support contacts\
+API.Bible: API.Bible documentation & support\
+Subsplash embeds: Subsplash Support \'97 Embeds / Custom code\
+Future enhancements (optional)\
+Date picker for \'93not just today\'94\
+Print-friendly view\
+Deep link: ?date=2026-03-31 for sharing a specific day\
+Internal project for The River Church \'97 daily readings + API.Bible + Subsplash embed.}

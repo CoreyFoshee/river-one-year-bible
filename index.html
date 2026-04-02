@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="The River Church — One Year Bible daily readings (NIV)" />
+    <title>One Year Bible | The River Church</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <a class="brand" href="https://theriver.cc" target="_blank" rel="noopener noreferrer">
+            <span class="brand__name">The River</span>
+            <span class="brand__sub">Church</span>
+          </a>
+          <p class="tagline">
+            One Year Bible
+            <span class="tagline__niv" title="New International Version">· NIV</span>
+          </p>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="toolbar card">
+          <div class="toolbar__row">
+            <label class="field">
+              <span class="field__label">Date</span>
+              <input type="date" id="date-input" class="field__input" />
+            </label>
+            <div class="toolbar__actions">
+              <button type="button" class="btn btn--ghost" id="btn-prev" aria-label="Previous day">← Prev</button>
+              <button type="button" class="btn btn--ghost" id="btn-today">Today</button>
+              <button type="button" class="btn btn--ghost" id="btn-next" aria-label="Next day">Next →</button>
+            </div>
+          </div>
+          <p class="toolbar__hint" id="day-label"></p>
+        </section>
+
+        <div id="status" class="status" hidden></div>
+
+        <p id="sections-hint" class="sections-hint" hidden>
+          Tap a section to load that reading. Only one section stays open at a time.
+        </p>
+        <div id="sections" class="sections"></div>
+
+        <footer class="foot">
+          <p class="foot__legal" id="copyright-block"></p>
+          <p class="foot__meta">
+            Scripture from API.Bible (NIV). This tool follows API.Bible terms of use.
+            <a href="https://theriver.cc" target="_blank" rel="noopener noreferrer">theriver.cc</a>
+          </p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

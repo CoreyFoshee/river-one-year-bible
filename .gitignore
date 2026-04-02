@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment and secrets (never commit real keys)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Netlify CLI local state (can include tokens / machine-specific paths)
+.netlify/
+
+# Generated from CSV during `npm run build` (prebuild)
+public/data/schedule.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc tooling artifacts
+deno.lock
