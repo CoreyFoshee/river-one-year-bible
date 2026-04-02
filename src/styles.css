@@ -215,13 +215,6 @@ a:hover {
   color: #6b1c1c;
 }
 
-.sections-hint {
-  margin: 0 0 0.85rem;
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.45;
-}
-
 .sections {
   display: flex;
   flex-direction: column;

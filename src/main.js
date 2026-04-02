@@ -132,15 +132,11 @@ async function renderDay(ymd) {
   if (!row) {
     setStatus('No readings found for this date.', true);
     dayLabel.textContent = formatDateKeyFromYmd(ymd);
-    const hint = document.getElementById('sections-hint');
-    if (hint) hint.hidden = true;
     return;
   }
 
   setStatus('');
   dayLabel.textContent = row.label || formatDateKeyFromYmd(ymd);
-  const hint = document.getElementById('sections-hint');
-  if (hint) hint.hidden = false;
 
   const copyrights = new Set();
 
