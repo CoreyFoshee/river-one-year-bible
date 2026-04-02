@@ -228,6 +228,22 @@ function init() {
     renderDay(ymd);
   });
 
+  const calBtn = document.getElementById('btn-open-calendar');
+  if (calBtn && input) {
+    calBtn.addEventListener('click', () => {
+      if (typeof input.showPicker === 'function') {
+        input.showPicker();
+      } else {
+        input.focus();
+        try {
+          input.click();
+        } catch {
+          /* ignore */
+        }
+      }
+    });
+  }
+
   loadSchedule()
     .then(() => renderDay(ymd))
     .catch((e) => setStatus(e.message || String(e), true));

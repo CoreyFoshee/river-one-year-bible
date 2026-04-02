@@ -104,14 +104,66 @@ a:hover {
   color: var(--text-muted);
 }
 
+.field__date-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
 .field__input {
   font: inherit;
   padding: 0.5rem 0.65rem;
+  padding-right: 2.75rem;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
   color: var(--text);
   min-width: 11rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* iOS / many mobile browsers hide the native date glyph — we show our own button */
+.field__calendar-btn {
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--river-navy-mid);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.field__calendar-btn:hover,
+.field__calendar-btn:focus-visible {
+  background: var(--river-mist);
+  outline: none;
+}
+
+.field__calendar-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--river-sky);
+}
+
+/* Avoid double calendar icons on Chrome desktop (keep tap target on input) */
+.field__date-wrap .field__input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 2.75rem;
+  height: 100%;
+  cursor: pointer;
 }
 
 .toolbar__actions {
