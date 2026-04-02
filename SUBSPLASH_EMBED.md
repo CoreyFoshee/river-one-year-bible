@@ -1,8 +1,8 @@
-# One Year Bible — Embed on The River’s website (Subsplash)
+# Daily Bible Reading — Embed on The River’s website (Subsplash)
 
 **Live app:** https://therivercc-oyb.netlify.app/
 
-This page shows the church’s **One Year Bible** reading plan (NIV). You can drop it into a Subsplash **Custom HTML** block (or any page that allows embed code).
+This page shows the church’s **daily Bible reading** plan (NIV). You can drop it into a Subsplash **Custom HTML** block (or any page that allows embed code).
 
 ---
 
@@ -13,7 +13,7 @@ Use this **iframe** code and replace nothing if the URL stays the same:
 ```html
 <iframe
   src="https://therivercc-oyb.netlify.app/"
-  title="One Year Bible"
+  title="Daily Bible Reading"
   style="width:100%;min-height:800px;border:0;"
   loading="lazy"
 ></iframe>
@@ -28,7 +28,7 @@ Use this **iframe** code and replace nothing if the URL stays the same:
 
 Exact menus can change, but usually:
 
-1. Open the **Subsplash Web** editor for the page where you want this (e.g. a custom page or “One Year Bible” page).
+1. Open the **Subsplash Web** editor for the page where you want this (e.g. a custom page or “Daily Bible Reading” page).
 2. Add a block that allows **HTML** or **embed** (often **Custom HTML**, **Embed**, or **Code**).
 3. Paste the iframe code above.
 4. **Save** and **preview** on desktop and phone.

@@ -1,4 +1,4 @@
-# One Year Bible — The River Church
+# Daily Bible Reading — The River Church
 
 A small static site that shows **daily readings** from `Assets/One Year Bible Master File.csv`, loads verse text from **API.Bible** (NIV) through a **serverless function** so your API key never ships to the browser.
 
@@ -53,7 +53,7 @@ Add your domain (e.g. `readings.theriver.cc`) under **Domain management** and fo
 ```html
 <iframe
   src="https://YOUR_SITE.netlify.app"
-  title="One Year Bible"
+  title="Daily Bible Reading"
   style="width:100%;min-height:800px;border:0;"
   loading="lazy"
 ></iframe>
